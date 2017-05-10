@@ -6,8 +6,8 @@ Period End VAT Statement
 
 This module helps to register the VAT statement of period end.
 
-In order to load correct amount from tax code, the tax code has to be
-associated to account involved in statement, through tax code form.
+In order to load correct amount from tax, the tax has to be
+associated to account involved in statement, through tax form.
 
 The 'VAT statement' object allows to specify every amount and relative account
 used by the statement.
@@ -27,8 +27,6 @@ reconciliation.
 If you need to calculate interest, you can add default information in your
 company data (percentage and account).
 
-Specification:
-http://wiki.odoo-italia.org/doku.php/moduli/vat_period_end_statement
 
 Credits
 =======

@@ -11,7 +11,7 @@ Document
             	<!-- 
             	Periods detail 
             	-->
-            	<t t-foreach="statement.period_ids" t-as="period"> 
+            	<t t-foreach="statement.date_range_ids" t-as="period">
                		<h3><span>Summary</span> <span t-esc="period.name"/> </h3>
                		
                		<!-- Purchase -->
@@ -224,7 +224,7 @@ Tax Code
 <!--
 Main 
  -->
-<template id="report_vatperiodendstatement">
+<template id="report_vat">
 	<t t-call="report.html_container">
 
         <t t-set="title" t-value="'Vat End Period Statement'"/>

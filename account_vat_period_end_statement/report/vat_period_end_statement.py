@@ -202,7 +202,7 @@ class VatPeriodEndStatementReport(report_sxw.rml_parse):
 
 class ReportVatPeriodEndStatement(orm.AbstractModel):
     _name = ('report.account_vat_period_end_statement.'
-             'report_vatperiodendstatement')
+             'report_vat')
     _inherit = 'report.abstract_report'
-    _template = 'account_vat_period_end_statement.report_vatperiodendstatement'
+    _template = 'account_vat_period_end_statement.report_vat'
     _wrapped_report_class = VatPeriodEndStatementReport
