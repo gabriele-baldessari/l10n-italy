@@ -88,7 +88,6 @@ class AccountMoveLine(models.Model):
                 if riba_line.state in ['confirmed', 'accredited']:
                     if riba_line.test_reconciled():
                         riba_line.state = 'paid'
-                        riba_line.distinta_id.signal_workflow('paid')
 
     @api.multi
     def reconcile(
@@ -272,10 +271,10 @@ class AccountFullReconcile(models.Model):
                 if not riba_line.test_reconciled():
                     if riba_line.distinta_id.accreditation_move_id:
                         riba_line.state = 'accredited'
-                        riba_line.distinta_id.signal_workflow('accredited')
+                        riba_line.distinta_id.state = 'accredited'
                     else:
                         riba_line.state = 'confirmed'
-                        riba_line.distinta_id.signal_workflow('accepted')
+                        riba_line.distinta_id.state = 'accepted'
 
     @api.multi
     def unlink(self):

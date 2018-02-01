@@ -15,7 +15,7 @@
     'website': "https://odoo-community.org/",
     'license': "AGPL-3",
     'depends': [
-        'account_accountant',
+        'account',
         'l10n_it_fiscalcode',
         'account_due_list',
         'base_iban',
@@ -31,7 +31,6 @@
         "views/wizard_riba_issue.xml",
         "views/wizard_riba_file_export.xml",
         "views/account_config_view.xml",
-        "riba_workflow.xml",
         "views/distinta_report.xml",
         "report.xml",
         "security/ir.model.access.csv",

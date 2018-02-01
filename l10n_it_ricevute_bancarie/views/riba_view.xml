@@ -51,8 +51,8 @@
                 <form string="Ri.Ba. list" version="7.0">
                     <header>
                         <button name="confirm" type='object' string="Accepted" class="oe_highlight" attrs="{'invisible':['|',('state','!=','draft'),('type','=','incasso')]}"/>
-                        <button name="%(riba_accreditation_action)d" type='action' attrs="{'invisible':['|',('state','!=','accepted'),('type','=','incasso')]}" string="Accredited" class="oe_highlight"/>
-                        <button name="cancel" attrs="{'invisible':[('state','=','cancel')]}" string="Cancel" />
+                        <button name="riba_accredited" type='object' attrs="{'invisible':['|',('state','!=','accepted'),('type','=','incasso')]}" string="Accredited" class="oe_highlight"/>
+                        <button name="riba_cancel" type='object' attrs="{'invisible':[('state','=','cancel')]}" string="Cancel" />
                         <button name="settle_all_line" type='object' string="Settle all" class="oe_highlight" attrs="{'invisible':['|',('state','!=','accredited')]}"/>
                         <button name="action_cancel_draft" attrs="{'invisible':['|',('state','!=','cancel'),('type','=','incasso')]}"  string="Reset to Draft" type="object" />
                         <field name="state" widget="statusbar" />

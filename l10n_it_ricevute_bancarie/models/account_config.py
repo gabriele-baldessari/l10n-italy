@@ -12,7 +12,7 @@ from openerp import models, fields, api
 
 class AccountConfigSettings(models.TransientModel):
 
-    _inherit = 'account.config.settings'
+    _inherit = 'res.config.settings'
 
     due_cost_service_id = fields.Many2one(
         related='company_id.due_cost_service_id',

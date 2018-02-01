@@ -75,8 +75,7 @@ class RibaAccreditation(models.TransientModel):
         active_id = self.env.context.get('active_id') or False
         if not active_id:
             raise UserError(_('No active ID found'))
-        self.env['riba.distinta'].browse(active_id).signal_workflow(
-            'accredited')
+        self.env['riba.distinta'].browse(active_id).state = 'accredited'
         return {'type': 'ir.actions.act_window_close'}
 
     def create_move(self):
@@ -120,8 +119,7 @@ class RibaAccreditation(models.TransientModel):
         }
         move = move_model.create(move_vals)
         distinta.write({'accreditation_move_id': move.id})
-        distinta_model.browse(active_id).signal_workflow(
-            'accredited')
+        distinta_model.browse(active_id).state = 'accredited'
         return {
             'name': _('Accreditation Entry'),
             'view_type': 'form',

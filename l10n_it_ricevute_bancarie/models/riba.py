@@ -7,7 +7,7 @@
 # Copyright (C) 2012-2017 Lorenzo Battistini - Agile Business Group
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models, api, workflow, _
+from odoo import fields, models, api, _
 from odoo.exceptions import Warning as UserError
 import odoo.addons.decimal_precision as dp
 from datetime import date
@@ -117,10 +117,6 @@ class RibaList(models.Model):
         for list in self:
             for line in list.line_ids:
                 line.confirm()
-
-    @api.multi
-    def riba_new(self):
-        self.state = 'draft'
 
     @api.multi
     def riba_cancel(self):
@@ -302,7 +298,8 @@ class RibaListLine(models.Model):
         ('paid', 'Paid'),
         ('unsolved', 'Unsolved'),
         ('cancel', 'Canceled'),
-    ], 'State', readonly=True, track_visibility='onchange')
+    ], 'State', default='draft', readonly=True, track_visibility='onchange')
+
     payment_ids = fields.Many2many(
         'account.move.line', compute='_compute_lines', string='Payments')
     type = fields.Char(
@@ -365,7 +362,7 @@ class RibaListLine(models.Model):
                 'acceptance_move_id': move.id,
                 'state': 'confirmed',
             })
-            line.distinta_id.signal_workflow('accepted')
+            line.distinta_id.state = 'accepted'
 
     @api.multi
     def riba_line_settlement(self):

@@ -4,24 +4,27 @@
 
     <record model="ir.ui.view" id="account_config_view_service_due_cost">
         <field name="name">account.config.view.service.due.cost</field>
-        <field name="model">account.config.settings</field>
-        <field name="inherit_id" ref="account.view_account_config_settings"/>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//group[@name='bank_cash']" position="after">
-                <separator string="Ri.Ba. Due Cost Config"/>
-                <group name="riba_config">
-                    <label for="id" string="Due Cost Service"/>
-                        <div>
+            <xpath expr="//div[@id='invoicing_settings']" position="after">
+                <h2>Ri.Ba. Due Cost Config</h2>
+                <div id="riba_settings">
+                    <group name="riba_config">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <label for="due_cost_service_id" string="Due Cost Service"/>
                             <div>
-                                <field name="due_cost_service_id"
-                                       class="oe_inline"/>
+                                <div>
+                                    <field name="due_cost_service_id"
+                                           class="oe_inline"/>
+                                </div>
                             </div>
                         </div>
-                </group>
+                    </group>
+                </div>
             </xpath>
         </field>
     </record>
-    
 
 </data>
 </odoo>
