@@ -2,12 +2,6 @@
 <openerp>
     <data>
 
-    <template id="distinta_layout">
-        <t t-set="company" t-value="res_company" />
-        <t t-call="report.external_layout_header" />
-        <t t-raw="0" />
-    </template>
-
     <template id="distinta_qweb">
 
         <style type="text/css">
@@ -33,9 +27,10 @@
             address { font-size: 11px; }
         </style>
 
-        <t t-call="report.html_container">
+        <t t-call="web.html_container">
+            <t t-set="company" t-value="res_company" />
             <t t-foreach="docs" t-as="o">
-                <t t-call="l10n_it_ricevute_bancarie.distinta_layout">
+                <t t-call="web.external_layout">
                     <div class="page">
 
                         <div id="distinta_number" class="row with_bord" style="padding: 2px;">
